@@ -17,7 +17,7 @@ class GoogleApiClient
 	 */
 	public function new()
 	{
-		__jobject = JNI.createInterface(this, CLASS, "");
+		__jobject = JNI.createInterface(this, Common.PACKAGE + CLASS, "");
 	}
 	
 	/**
@@ -35,10 +35,10 @@ class GoogleApiClient
 	{
 		if (__connect == null)
 		{
-			__connect = JNI.createMemberMethod(CLASS, "connect", VOID_VOID);
+			__connect = JNI.createMemberMethod(Common.PACKAGE + CLASS, "connect", VOID_VOID);
 		}
 		
-		__connect(makeArray());
+		__connect(Common.array());
 		
 		return;
 	}
@@ -50,10 +50,10 @@ class GoogleApiClient
 	{
 		if (__isConnected == null)
 		{
-			__isConnected = JNI.createMemberMethod(CLASS, "isConnected", VOID_BOOLEAN);
+			__isConnected = JNI.createMemberMethod(Common.PACKAGE + CLASS, "isConnected", VOID_BOOL);
 		}
 		
-		return __isConnected(makeArray(__jObject));
+		return __isConnected([__jObject]);
 	}
 	
 	/**
@@ -63,30 +63,12 @@ class GoogleApiClient
 	{
 		if (__disconnect == null)
 		{
-			__disconnect = JNI.createMemberMethod(CLASS, "disconnect", VOID_VOID);
+			__disconnect = JNI.createMemberMethod(Common.PACKAGE + CLASS, "disconnect", VOID_VOID);
 		}
 		
-		__disconnect(makeArray());
+		__disconnect(Common.array());
 		
 		return;
-	}
-	
-	/**
-	 * Returns a new Dynamic Array.
-	 * 
-	 * @param	Handle	Optional, if passed, will be pushed into the array before returning.
-	 * @return	A new Dynamic Array.
-	 */
-	private function makeArray(?Handle:Dynamic):Array<Dynamic>
-	{
-		var array = new Array<Dynamic>();
-		
-		if (Handle != null)
-		{
-			array.push(Handle);
-		}
-		
-		return array;
 	}
 	
 	/**
@@ -97,13 +79,5 @@ class GoogleApiClient
 	private var __isConnected:Dynamic;
 	private var __disconnect:Dynamic;
 	
-	/**
-	 * The class name is the same for all methods.
-	 */
-	inline static private var CLASS:String = "com.google.android.gms.common.api.GoogleApiClient";
-	/**
-	 * The signature defines Java return types. Names are similar to Haxe types, e.g. VOID_VOID = Void->Void.
-	 */
-	inline static private var VOID_VOID:String = "()V";
-	inline static private var VOID_BOOLEAN:String = "()Z";
+	inline static private var CLASS:String = "api.GoogleApiClient";
 }
