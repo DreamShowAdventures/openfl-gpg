@@ -1,0 +1,11 @@
+{
+	"name": "openfl-play",
+	"url": "http://www.openfl.org",
+	"license": "MIT",
+	"tags": [],
+	"description": "Extension for additional Google Play Services support",
+	"version": "0.0.1",
+	"releasenote": "None",
+	"contributors": [ "Steve Richey" ],
+	"dependencies": {}
+}
