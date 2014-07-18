@@ -1,5 +1,6 @@
 package;
 
+import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.GooglePlayServicesUtil;
 import openfl.display.Sprite;
 import openfl.events.Event;
@@ -21,6 +22,22 @@ class Main extends Sprite
 		text.setTextFormat(format);
 		addChild(text);
 		
-		GooglePlayServicesUtil.
-	}	
+		append("Checking if services are available...");
+		
+		if (GooglePlayServicesUtil.isGooglePlayServicesAvailable())
+		{
+			append("Yep! They are available.");
+		}
+		else
+		{
+			append("Nope! They are not available.");
+		}
+		
+		//GoogleApiClient.connect();
+	}
+	
+	private function append(Text:String):Void
+	{
+		text.text += "\n" + Text;
+	}
 }

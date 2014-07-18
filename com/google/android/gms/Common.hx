@@ -20,6 +20,7 @@ class Common
 	/**
 	 * The signature defines Java return types. Names are similar to Haxe types, e.g. VOID_INT = Void->Int.
 	 */
+	inline static public var INT_VOID:String = "(I)V";
 	inline static public var VOID_VOID:String = "()V";
 	inline static public var VOID_BOOL:String = "()Z";
 	inline static public var VOID_INT:String = "()I";

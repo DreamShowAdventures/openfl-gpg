@@ -98,9 +98,16 @@ class GooglePlayServicesUtil
 		
 	}
 	
-	public static function showErrorNotification(errorCode:Int, context:Context):Void
+	public static function showErrorNotification(errorCode:Int):Void
 	{
+		if (__showErrorNotification == null)
+		{
+			__showErrorNotification = JNI.createStaticMethod(Common.PACKAGE + CLASS, "showErrorNotification", Common.INT_VOID);
+		}
 		
+		init();
+		
+		return __showErrorNotification([errorCode, __jObject);
 	}
 	
 	private static function init():Void
