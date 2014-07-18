@@ -1,9 +1,11 @@
-package com.google.android.gms;
+package com;
 
 /**
- * Commonly re-used strings and functions
+ * OpenFL-Play convenience class. Contains commonly re-used strings and functions.
+ * 
+ * @author Steve Richey
  */
-class Common
+class OP
 {
 	/**
 	 * Returns a new Dynamic Array.
@@ -20,9 +22,12 @@ class Common
 	/**
 	 * The signature defines Java return types. Names are similar to Haxe types, e.g. VOID_INT = Void->Int.
 	 */
+	inline static public var ACTIVITY_INT_VOID:String = "(Landroid/app/Activity;I;)V";
 	inline static public var CONTEXT_BOOL:String = "(Landroid/content/Context;)Z";
+	inline static public var CONTEXT_INT:String = "(Landroid/content/Context;)I";
 	inline static public var CONTEXT_CONTEXT:String = "(Landroid/content/Context;)Landroid/content/Context;";
 	inline static public var CONTEXT_STRING:String = "(Landroid/content/Context;)Ljava/lang/String;";
+	inline static public var INT_ACTIVITY_INT_DIALOGINTERFACE_ONCANCELLISTENER_BOOL:String = "(I;Landroid/app/Activity;I;Landroid/content/DialogInterface/OnCancelListener;)Z";
 	inline static public var INT_BOOL:String = "(I)Z";
 	inline static public var INT_VOID:String = "(I)V";
 	inline static public var INT_STRING:String = "(I)Ljava/lang/String;";

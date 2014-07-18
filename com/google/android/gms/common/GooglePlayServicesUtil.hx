@@ -1,5 +1,7 @@
 package com.google.android.gms.common;
 
+#if android
+
 import openfl.utils.JNI;
 
 class GooglePlayServicesUtil
@@ -30,33 +32,21 @@ class GooglePlayServicesUtil
 		
 	//}
 	
-	public static function getErrorString(errorCode:Int):String
+	public static inline function getErrorString(errorCode:Int):String
 	{
-		if (__getErrorString == null)
-		{
-			__getErrorString = JNI.createStaticMethod(Common.PACKAGE + CLASS, "getErrorString", Common.INT_STRING);
-		}
-		
 		return __getErrorString([errorCode]);
 	}
 	
-	public static function getOpenSourceSoftwareLicenseInfo():String
+	public static inline function getOpenSourceSoftwareLicenseInfo():String
 	{
-		if (__getOpenSourceSoftwareLicenseInfo == null)
-		{
-			__getOpenSourceSoftwareLicenseInfo = JNI.createStaticMethod(Common.PACKAGE + CLASS, "getOpenSourceSoftwareLicenseInfo", Common.CONTEXT_STRING);
-		}
-		
-		init();
-		
-		return __getOpenSourceSoftwareLicenseInfo([__jObject]);
+		return __getOpenSourceSoftwareLicenseInfo([init()]);
 	}
 	/**
 	public static function getRemoteContext():Context
 	{
 		if (__getRemoteContext == null)
 		{
-			__getRemoteContext = JNI.createStaticMethod(Common.PACKAGE + CLASS, "getRemoteContext", Common.CONTEXT_CONTEXT);
+			__getRemoteContext = JNI.createStaticMethod(OP.PACKAGE + CLASS, "getRemoteContext", OP.CONTEXT_CONTEXT);
 		}
 		
 		if (__jObject == null)
@@ -71,7 +61,7 @@ class GooglePlayServicesUtil
 	{
 		if (__getRemoteResource == null)
 		{
-			__getRemoteResource = JNI.createStaticMethod(Common.PACKAGE + CLASS, "getRemoteResource", Common.CONTEXT_RESOURCES);
+			__getRemoteResource = JNI.createStaticMethod(OP.PACKAGE + CLASS, "getRemoteResource", OP.CONTEXT_RESOURCES);
 		}
 		
 		if (__jObject == null)
@@ -88,25 +78,13 @@ class GooglePlayServicesUtil
 	 * 
 	 * @return  Status code indicating whether there was an error. Can be one of following in ConnectionResult: SUCCESS, SERVICE_MISSING, SERVICE_VERSION_UPDATE_REQUIRED, SERVICE_DISABLED, SERVICE_INVALID, DATE_INVALID.
 	 */
-	public static function isGooglePlayServicesAvailable():Int
+	public static inline function isGooglePlayServicesAvailable():Int
 	{
-		if (__isGooglePlayServicesAvailable == null)
-		{
-			__isGooglePlayServicesAvailable = JNI.createStaticMethod(Common.PACKAGE + CLASS, "isGooglePlayServicesAvailable", Common.CONTEXT_BOOL);
-		}
-		
-		init();
-		
-		return __isGooglePlayServicesAvailable([__jObject]);
+		return __isGooglePlayServicesAvailable([init()]);
 	}
 	
-	public static function isUserRecoverableError(errorCode:Int):Bool
+	public static inline function isUserRecoverableError(errorCode:Int):Bool
 	{
-		if (__isUserRecoverableError == null)
-		{
-			__isUserRecoverableError = JNI.createStaticMethod(Common.PACKAGE + CLASS, "isUserRecoverableError", Common.INT_BOOL);
-		}
-		
 		return __isUserRecoverableError([errorCode]);
 	}
 	/**
@@ -116,36 +94,33 @@ class GooglePlayServicesUtil
 	}
 	**/
 	
-	public static function showErrorNotification(errorCode:Int):Void
+	public static inline function showErrorNotification(errorCode:Int):Void
 	{
-		if (__showErrorNotification == null)
-		{
-			__showErrorNotification = JNI.createStaticMethod(Common.PACKAGE + CLASS, "showErrorNotification", Common.INT_VOID);
-		}
-		
-		init();
-		
-		__showErrorNotification([errorCode, __jObject]);
+		__showErrorNotification([errorCode, init()]);
 	}
 	
-	private static function init():Void
+	private static function init():Dynamic
 	{
 		if (__jObject == null)
 		{
-			__jObject = JNI.createInterface(GooglePlayServicesUtil, Common.PACKAGE + CLASS, "");
+			__jObject = JNI.createInterface(GooglePlayServicesUtil, OP.PACKAGE + CLASS, "");
 		}
+		
+		return __jObject;
 	}
 	
-	private static var __jObject:Dynamic;
+	private static var __jObject:Dynamic							= null;
 	private static var __getErrorDialog:Dynamic;
 	private static var __getErrorPendingIntent:Dynamic;
-	private static var __getErrorString:Dynamic;
-	private static var __getOpenSourceSoftwareLicenseInfo:Dynamic;
+	private static var __getErrorString:Dynamic						= JNI.createStaticMethod(OP.PACKAGE + CLASS, "getErrorString", OP.INT_STRING);
+	private static var __getOpenSourceSoftwareLicenseInfo:Dynamic	= JNI.createStaticMethod(OP.PACKAGE + CLASS, "getOpenSourceSoftwareLicenseInfo", OP.CONTEXT_STRING);
 	private static var __getRemoteContext:Dynamic;
 	private static var __getRemoteResource:Dynamic;
-	private static var __isGooglePlayServicesAvailable:Dynamic;
-	private static var __isUserRecoverableError:Dynamic;
-	private static var __showErrorDialogFragment:Dynamic;
-	private static var __showErrorNotification:Dynamic;
+	private static var __isGooglePlayServicesAvailable:Dynamic		= JNI.createStaticMethod(OP.PACKAGE + CLASS, "isGooglePlayServicesAvailable", OP.CONTEXT_INT);
+	private static var __isUserRecoverableError:Dynamic				= JNI.createStaticMethod(OP.PACKAGE + CLASS, "isUserRecoverableError", OP.INT_BOOL);
+	private static var __showErrorDialogFragment:Dynamic			= JNI.createStaticMethod(OP.PACKAGE + CLASS, "showErrorDialogFragment", OP.INT_ACTIVITY_INT_DIALOGINTERFACE_ONCANCELLISTENER_BOOL);
+	private static var __showErrorNotification:Dynamic				= JNI.createStaticMethod(OP.PACKAGE + CLASS, "showErrorNotification", OP.INT_VOID);
 	inline private static var CLASS:String = "GooglePlayServicesUtil";
 }
+
+#end

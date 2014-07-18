@@ -1,23 +1,23 @@
 package com.google.android.gms.common.api;
 
+#if android
+
 import openfl.utils.JNI;
 
 class GoogleApiClient
 {
 	/**
 	 * Create a new GoogleApiClient instance.
-	 * 
-	 * @param	handle
 	 */
 	public function new()
 	{
-		__jObject = JNI.createInterface(this, Common.PACKAGE + CLASS, "");
+		__jObject = JNI.createInterface(this, OP.PACKAGE + CLASS, "");
 	}
 	
 	/**
 	 * Returns a reference to the internal Java object.
 	 */
-	public function getJObject():Dynamic
+	public inline function getJObject():Dynamic
 	{
 		return __jObject;
 	}
@@ -25,16 +25,9 @@ class GoogleApiClient
 	/**
 	 * Connects to Google Play Services. Required before most other functions.
 	 */
-	public function connect():Void
+	public inline function connect():Void
 	{
-		if (__connect == null)
-		{
-			__connect = JNI.createMemberMethod(Common.PACKAGE + CLASS, "connect", Common.VOID_VOID);
-		}
-		
-		__connect(Common.array());
-		
-		return;
+		__connect(OP.array());
 	}
 	
 	/**
@@ -42,11 +35,6 @@ class GoogleApiClient
 	 */
 	public function isConnected():Bool
 	{
-		if (__isConnected == null)
-		{
-			__isConnected = JNI.createMemberMethod(Common.PACKAGE + CLASS, "isConnected", Common.VOID_BOOL);
-		}
-		
 		return __isConnected([__jObject]);
 	}
 	
@@ -55,23 +43,17 @@ class GoogleApiClient
 	 */
 	public function disconnect():Void
 	{
-		if (__disconnect == null)
-		{
-			__disconnect = JNI.createMemberMethod(Common.PACKAGE + CLASS, "disconnect", Common.VOID_VOID);
-		}
-		
-		__disconnect(Common.array());
-		
-		return;
+		__disconnect(OP.array());
 	}
 	
 	/**
 	 * References to JNI objects.
 	 */
-	private var __jObject:Dynamic;
-	private var __connect:Dynamic;
-	private var __isConnected:Dynamic;
-	private var __disconnect:Dynamic;
+	private var __jObject:Dynamic 		= null;
+	private var __connect:Dynamic		= JNI.createMemberMethod(OP.PACKAGE + CLASS, "connect", OP.VOID_VOID);
+	private var __isConnected:Dynamic	= JNI.createMemberMethod(OP.PACKAGE + CLASS, "isConnected", OP.VOID_BOOL);
+	private var __disconnect:Dynamic 	= JNI.createMemberMethod(OP.PACKAGE + CLASS, "disconnect", OP.VOID_VOID);
 	
 	inline static private var CLASS:String = "api.GoogleApiClient";
 }
+#end

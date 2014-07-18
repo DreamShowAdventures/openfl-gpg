@@ -3,7 +3,7 @@
 	<meta title="OpenflPlayTest" package="com.example.openflplaytest" version="1.0.0" company="Dream Show Adventures"/>
 	<app main="Main" path="Export" file="OpenflPlayTest" />
 	
-	<window width="240" height="430" fps="60" background="#000000" hardware="true" vsync="true" />
+	<window width="240" height="430" fps="60" background="#FFFFFF" hardware="true" vsync="true" />
 	
 	<window if="web" orientation="portrait"  />
 	<window if="desktop" orientation="portrait" fullscreen="false" resizable="true" />
