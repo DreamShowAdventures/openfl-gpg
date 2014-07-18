@@ -13,10 +13,10 @@ class GooglePlayServicesUtil
 	 * @param	cancelListener  Optional, the DialogInterface.OnCancelListener to invoke if the dialog is canceled.
 	 * @return  
 	 */
-	public static function getErrorDialog(errorCode:Int, activity:Activity, requestCode:Int, ?cancelListener:DialogueInterface.OnCancelListener):Dialog
-	{
+	//public static function getErrorDialog(errorCode:Int, activity:Activity, requestCode:Int, ?cancelListener:DialogueInterface.OnCancelListener):Dialog
+	//{
 		
-	}
+	//}
 	
 	/**
 	 * 
@@ -25,19 +25,31 @@ class GooglePlayServicesUtil
 	 * @param	requestCode
 	 * @return
 	 */
-	public static function getErrorPendingIntent(errorCode:Int, context:Context, requestCode:Int):PendingIntent
-	{
+	//public static function getErrorPendingIntent(errorCode:Int, context:Context, requestCode:Int):PendingIntent
+	//{
 		
-	}
+	//}
 	
 	public static function getErrorString(errorCode:Int):String
 	{
+		if (__getErrorString == null)
+		{
+			__getErrorString = JNI.createStaticMethod(Common.PACKAGE + CLASS, "getErrorString", Common.INT_STRING);
+		}
 		
+		return __getErrorString([errorCode]);
 	}
 	
-	public static function getOpenSourceSoftwareLicenseInfo(context:Context):String
+	public static function getOpenSourceSoftwareLicenseInfo():String
 	{
+		if (__getOpenSourceSoftwareLicenseInfo == null)
+		{
+			__getOpenSourceSoftwareLicenseInfo = JNI.createStaticMethod(Common.PACKAGE + CLASS, "getOpenSourceSoftwareLicenseInfo", Common.CONTEXT_STRING);
+		}
 		
+		init();
+		
+		return __getOpenSourceSoftwareLicenseInfo([__jObject]);
 	}
 	/**
 	public static function getRemoteContext():Context
@@ -90,13 +102,19 @@ class GooglePlayServicesUtil
 	
 	public static function isUserRecoverableError(errorCode:Int):Bool
 	{
+		if (__isUserRecoverableError == null)
+		{
+			__isUserRecoverableError = JNI.createStaticMethod(Common.PACKAGE + CLASS, "isUserRecoverableError", Common.INT_BOOL);
+		}
 		
+		return __isUserRecoverableError([errorCode]);
 	}
-	
+	/**
 	public static function showErrorDialogFragment(errorCode:Int, activity:Activity, requestCode:Int, ?cancelListener:DialogInterface.OnCancelListener):Bool
 	{
 		
 	}
+	**/
 	
 	public static function showErrorNotification(errorCode:Int):Void
 	{
@@ -107,14 +125,14 @@ class GooglePlayServicesUtil
 		
 		init();
 		
-		return __showErrorNotification([errorCode, __jObject);
+		__showErrorNotification([errorCode, __jObject]);
 	}
 	
 	private static function init():Void
 	{
 		if (__jObject == null)
 		{
-			__jObject = JNI.createInterface(this, Common.PACKAGE + CLASS, "");
+			__jObject = JNI.createInterface(GooglePlayServicesUtil, Common.PACKAGE + CLASS, "");
 		}
 	}
 	

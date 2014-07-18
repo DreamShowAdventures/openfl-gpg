@@ -82,7 +82,7 @@ class ConnectionResult
 	 * @param	statusCode     The status code.
 	 * @param	pendingIntent  A pending intent that will resolve the issue when started, or null.
 	 */
-	public function new(statusCode:Int, ?pendingIntent:PendingIntent)
+	public function new(statusCode:Int)//, ?pendingIntent:PendingIntent)
 	{
 		__jObject = JNI.createInterface(this, CLASS, "");
 	}

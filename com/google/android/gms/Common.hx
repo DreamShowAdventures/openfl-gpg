@@ -20,11 +20,14 @@ class Common
 	/**
 	 * The signature defines Java return types. Names are similar to Haxe types, e.g. VOID_INT = Void->Int.
 	 */
+	inline static public var CONTEXT_BOOL:String = "(Landroid/content/Context;)Z";
+	inline static public var CONTEXT_CONTEXT:String = "(Landroid/content/Context;)Landroid/content/Context;";
+	inline static public var CONTEXT_STRING:String = "(Landroid/content/Context;)Ljava/lang/String;";
+	inline static public var INT_BOOL:String = "(I)Z";
 	inline static public var INT_VOID:String = "(I)V";
+	inline static public var INT_STRING:String = "(I)Ljava/lang/String;";
 	inline static public var VOID_VOID:String = "()V";
 	inline static public var VOID_BOOL:String = "()Z";
 	inline static public var VOID_INT:String = "()I";
 	inline static public var VOID_STRING:String = "()Ljava/lang/String;";
-	inline static public var CONTEXT_BOOL:String = "(Landroid/content/Context;)Z";
-	inline static public var CONTEXT_CONTEXT:String = "(Landroid/content/Context;)Landroid/content/Context;";
 }

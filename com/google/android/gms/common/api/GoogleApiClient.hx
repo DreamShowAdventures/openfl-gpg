@@ -2,12 +2,6 @@ package com.google.android.gms.common.api;
 
 import openfl.utils.JNI;
 
-/**
- * Haxe implementation of the main entry point for Google Play services integration.
- * Uses similar structure to openfl-ouya. Requires google-play-services.jar
- * 
- * @author Steve Richey
- */
 class GoogleApiClient
 {
 	/**
@@ -17,7 +11,7 @@ class GoogleApiClient
 	 */
 	public function new()
 	{
-		__jobject = JNI.createInterface(this, Common.PACKAGE + CLASS, "");
+		__jObject = JNI.createInterface(this, Common.PACKAGE + CLASS, "");
 	}
 	
 	/**
@@ -35,7 +29,7 @@ class GoogleApiClient
 	{
 		if (__connect == null)
 		{
-			__connect = JNI.createMemberMethod(Common.PACKAGE + CLASS, "connect", VOID_VOID);
+			__connect = JNI.createMemberMethod(Common.PACKAGE + CLASS, "connect", Common.VOID_VOID);
 		}
 		
 		__connect(Common.array());
@@ -50,7 +44,7 @@ class GoogleApiClient
 	{
 		if (__isConnected == null)
 		{
-			__isConnected = JNI.createMemberMethod(Common.PACKAGE + CLASS, "isConnected", VOID_BOOL);
+			__isConnected = JNI.createMemberMethod(Common.PACKAGE + CLASS, "isConnected", Common.VOID_BOOL);
 		}
 		
 		return __isConnected([__jObject]);
@@ -63,7 +57,7 @@ class GoogleApiClient
 	{
 		if (__disconnect == null)
 		{
-			__disconnect = JNI.createMemberMethod(Common.PACKAGE + CLASS, "disconnect", VOID_VOID);
+			__disconnect = JNI.createMemberMethod(Common.PACKAGE + CLASS, "disconnect", Common.VOID_VOID);
 		}
 		
 		__disconnect(Common.array());

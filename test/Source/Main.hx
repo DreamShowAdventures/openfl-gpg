@@ -1,6 +1,7 @@
 package;
 
 import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
 import openfl.display.Sprite;
 import openfl.events.Event;
@@ -24,7 +25,7 @@ class Main extends Sprite
 		
 		append("Checking if services are available...");
 		
-		if (GooglePlayServicesUtil.isGooglePlayServicesAvailable())
+		if (GooglePlayServicesUtil.isGooglePlayServicesAvailable() == ConnectionResult.SUCCESS)
 		{
 			append("Yep! They are available.");
 		}
