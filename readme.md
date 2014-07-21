@@ -1,6 +1,6 @@
-# OpenFL-Play
+# ![](assets/openfl-gpg-logo.png) OpenFL - Google Play Games
 
-Haxe bindings for Google Play Services, via OpenFL. MIT licensed.
+Haxe bindings for Google Play Games Services, via OpenFL. MIT licensed.
 
 ## Info
 
@@ -12,16 +12,16 @@ Haxe bindings for Google Play Services, via OpenFL. MIT licensed.
 
 ## Usage
 
-Add `openfl-play` to haxelib.
+Add `openfl-gpg` to haxelib.
 
 ````
-haxelib git openfl-play https://github.com/DreamShowAdventures/openfl-play
+haxelib git openfl-gpg https://github.com/DreamShowAdventures/openfl-play
 ````
 
 Add it to your `Project.xml`.
 
 ````
-<haxelib name="openfl-play"/>
+<haxelib name="openfl-gpg"/>
 ````
 
 Before using any Google Play Services, you should probably check if they're available:
