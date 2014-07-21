@@ -1,11 +1,13 @@
 {
-	"name": "openfl-play",
-	"url": "http://www.openfl.org",
-	"license": "MIT",
-	"tags": [],
-	"description": "Extension for additional Google Play Services support",
-	"version": "0.0.1",
-	"releasenote": "None",
-	"contributors": [ "Steve Richey" ],
-	"dependencies": {}
+  "name": "openfl-gpg",
+  "url": "https://github.com/DreamShowAdventures/openfl-gpg",
+  "license": "MIT",
+  "tags": [],
+  "description": "Extension for Google Play Games Services support in OpenFL.",
+  "version": "0.0.1",
+  "releasenote": "",
+  "contributors": [""],
+  "dependencies": {
+
+  }
 }

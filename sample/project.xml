@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project>
+	<meta title="OpenFL-GPG-Sample" package="com.example.openflplaytest" version="1.0.0" company="Dream Show Adventures"/>
+	<app main="Main" path="export" file="OpenFL-GPG-Sample" />
+	
+	<window width="240" height="430" fps="60" background="#22FF22" hardware="true" vsync="true" />
+	
+	<window if="web" orientation="portrait"  />
+	<window if="desktop" orientation="portrait" fullscreen="false" resizable="true" />
+	<window if="mobile" orientation="portrait" fullscreen="true" width="0" height="0" />
+	
+	<source path="source" />
+	
+	<haxelib name="openfl" />
+	<haxelib name="openfl-gpg"/>
+	
+	<icon path="assets/openfl-gpg-logo.svg" />
+</project>

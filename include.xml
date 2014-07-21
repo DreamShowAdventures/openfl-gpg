@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<extension>
-	<java path="libs/google-play-services.jar" />
-	<android target-sdk-version="16" />
-</extension>
+<project>
+	
+	<ndll name="openfl_gpg" />
+	
+	<!-- Use the following for an Android Java extension, not needed otherwise -->
+	
+	<dependency name="openfl_gpg" path="dependencies/android" if="android" />
+	<android extension="org.haxe.extension.Openfl_gpg" />
+	
+</project>
