@@ -1,1 +1,0 @@
-adb logcat OpenflPlayTest:E -v long > output.txt

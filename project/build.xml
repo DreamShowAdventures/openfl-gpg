@@ -1,111 +1,24 @@
 <xml>
 	<include name="${HXCPP}/build-tool/BuildCommon.xml"/>
 	
-	<files id="android">
-		<file name="android/gpg/achievement.h"/>
-		<file name="android/gpg/achievement_manager.h"/>
-		<file name="android/gpg/android_initialization.h"/>
-		<file name="android/gpg/android_platform_configuration.h"/>
-		<file name="android/gpg/android_support.h"/>
-		<file name="android/gpg/builder.h"/>
-		<file name="android/gpg/common.h"/>
-		<file name="android/gpg/debug.h"/>
-		<file name="android/gpg/default_callbacks.h"/>
-		<file name="android/gpg/event.h"/>
-		<file name="android/gpg/event_manager.h"/>
-		<file name="android/gpg/game_services.h"/>
-		<file name="android/gpg/gpg.h"/>
-		<file name="android/gpg/ios_platform_configuration.h"/>
-		<file name="android/gpg/ios_support.h"/>
-		<file name="android/gpg/leaderboard.h"/>
-		<file name="android/gpg/leaderboard_manager.h"/>
-		<file name="android/gpg/multiplayer_invitation.h"/>
-		<file name="android/gpg/multiplayer_participant.h"/>
-		<file name="android/gpg/participant_results.h"/>
-		<file name="android/gpg/platform_configuration.h"/>
-		<file name="android/gpg/platform_defines.h"/>
-		<file name="android/gpg/player.h"/>
-		<file name="android/gpg/player_level.h"/>
-		<file name="android/gpg/player_manager.h"/>
-		<file name="android/gpg/quest.h"/>
-		<file name="android/gpg/quest_manager.h"/>
-		<file name="android/gpg/quest_milestone.h"/>
-		<file name="android/gpg/score.h"/>
-		<file name="android/gpg/score_page.h"/>
-		<file name="android/gpg/score_summary.h"/>
-		<file name="android/gpg/snapshot_manager.h"/>
-		<file name="android/gpg/snapshot_metadata.h"/>
-		<file name="android/gpg/snapshot_metadata_change.h"/>
-		<file name="android/gpg/snapshot_metadata_change_builder.h"/>
-		<file name="android/gpg/snapshot_metadata_change_cover_image.h"/>
-		<file name="android/gpg/status.h"/>
-		<file name="android/gpg/turn_based_match.h"/>
-		<file name="android/gpg/turn_based_match_config.h"/>
-		<file name="android/gpg/turn_based_match_config_builder.h"/>
-		<file name="android/gpg/turn_based_multiplayer_manager.h"/>
-		<file name="android/gpg/types.h"/>
+	<files id="common">
+		<compilerflag value="-Iinclude"/>
+		
+		<file name="common/ExternalInterface.cpp"/>
+		<file name="common/openfl-gpg.cpp"/>
 	</files>
 	
-	<files id="ios">
-		<file name="ios/gpg/achievement.h"/>
-		<file name="ios/gpg/achievement_manager.h"/>
-		<file name="ios/gpg/android_initialization.h"/>
-		<file name="ios/gpg/android_platform_configuration.h"/>
-		<file name="ios/gpg/android_support.h"/>
-		<file name="ios/gpg/builder.h"/>
-		<file name="ios/gpg/common.h"/>
-		<file name="ios/gpg/debug.h"/>
-		<file name="ios/gpg/default_callbacks.h"/>
-		<file name="ios/gpg/event.h"/>
-		<file name="ios/gpg/event_manager.h"/>
-		<file name="ios/gpg/game_services.h"/>
-		<file name="ios/gpg/gpg.h"/>
-		<file name="ios/gpg/ios_platform_configuration.h"/>
-		<file name="ios/gpg/ios_support.h"/>
-		<file name="ios/gpg/leaderboard.h"/>
-		<file name="ios/gpg/leaderboard_manager.h"/>
-		<file name="ios/gpg/multiplayer_invitation.h"/>
-		<file name="ios/gpg/multiplayer_participant.h"/>
-		<file name="ios/gpg/participant_results.h"/>
-		<file name="ios/gpg/platform_configuration.h"/>
-		<file name="ios/gpg/platform_defines.h"/>
-		<file name="ios/gpg/player.h"/>
-		<file name="ios/gpg/player_level.h"/>
-		<file name="ios/gpg/player_manager.h"/>
-		<file name="ios/gpg/quest.h"/>
-		<file name="ios/gpg/quest_manager.h"/>
-		<file name="ios/gpg/quest_milestone.h"/>
-		<file name="ios/gpg/score.h"/>
-		<file name="ios/gpg/score_page.h"/>
-		<file name="ios/gpg/score_summary.h"/>
-		<file name="ios/gpg/snapshot_manager.h"/>
-		<file name="ios/gpg/snapshot_metadata.h"/>
-		<file name="ios/gpg/snapshot_metadata_change.h"/>
-		<file name="ios/gpg/snapshot_metadata_change_builder.h"/>
-		<file name="ios/gpg/snapshot_metadata_change_cover_image.h"/>
-		<file name="ios/gpg/status.h"/>
-		<file name="ios/gpg/turn_based_match.h"/>
-		<file name="ios/gpg/turn_based_match_config.h"/>
-		<file name="ios/gpg/turn_based_match_config_builder.h"/>
-		<file name="ios/gpg/turn_based_multiplayer_manager.h"/>
-		<file name="ios/gpg/types.h"/>
-	</files>
+	<set name="SLIBEXT" value=".lib" if="windows"/>
+	<set name="SLIBEXT" value=".a" unless="windows"/>
+	<set name="SLIBEXT" value=".so" if="webos"/>
 	
-	<set name="name_prefix" value="lib" if="ios"/>
-	<set name="IOS_ARCH" value="-v7" if="HXCPP_ARMV7"/>
-	<set name="name_extra" value=".iphoneos${IOS_ARCH}" if="ios"/>
-	<set name="name_extra" value=".iphonesim" if="ios"/>
-	<set name="name_extra" value="-x86" if="simulator" unless="ios" />
-	<set name="tool" value="exe" unless="ios"/>
-	<set name="tool" value="static_link" if="ios"/>
-	<set name="ndll-tool" value="dll" unless="ios"/>
-	<set name="ndll-tool" value="static_link" if="ios"/>
+	<set name="DEBUGEXTRA" value="-debug" if="fulldebug" />
+	<set name="MSVC_LIB_VERSION" value="-v7" if="android" />
 	
 	<target id="NDLL" output="${LIBPREFIX}openfl_gpg${MSVC_LIB_VERSION}${DEBUGEXTRA}${LIBEXTRA}" tool="linker" toolid="${STD_MODULE_LINK}">
 		<outdir name="../ndll/${BINDIR}"/>
-		
-		<files id="android" if="android" />
-		<files id="ios" if="ios" />
+		<ext value=".ndll" if="windows || mac || linux"/>
+		<files id="common"/>
 	</target>
 	
 	<target id="default">

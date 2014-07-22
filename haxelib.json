@@ -1,10 +1,10 @@
 {
-  "name": "openfl-gpg",
-  "url": "https://github.com/DreamShowAdventures/openfl-gpg",
+  "name": "openfl_gpg",
+  "url": "",
   "license": "MIT",
   "tags": [],
-  "description": "Extension for Google Play Games Services support in OpenFL.",
-  "version": "0.0.1",
+  "description": "",
+  "version": "1.0.0",
   "releasenote": "",
   "contributors": [""],
   "dependencies": {
