@@ -13,12 +13,10 @@
 		<file name="common/ExternalInterface.cpp"/>
 	</files>
 	
-	<!--
 	<files id="iphone">
 		<compilerflag value="-IiPhone/include"/>
 		<compilerflag value="-Iinclude"/>
 	</files>
-	-->
 	
 	<set name="name_prefix" value="lib" if="iphone"/>
 	<set name="ARM_ARCH" value="-v7" if="HXCPP_ARMV7"/>
@@ -31,7 +29,8 @@
 	<set name="ndll-tool" value="static_link" if="iphone"/>
 	<set name="SLIBEXT" value=".lib" if="windows"/>
 	<set name="SLIBEXT" value=".a" unless="windows"/>
-	<set name="SLIBEXT" value=".so" if="webos"/>
+	<set name="SLIBEXT" value=".so" if="android"/>
+	<set name="name_extra" value="${ARM_ARCH}" if="HXCPP_ARMV7 android"/>
 	
 	<target id="NDLL" output="${name_prefix}gpg${debug_extra}${name_extra}" tool="linker" toolid="${ndll-tool}">
 		<outdir name="../ndll/${BINDIR}"/>

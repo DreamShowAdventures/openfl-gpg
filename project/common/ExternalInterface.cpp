@@ -14,7 +14,8 @@ using namespace gpg;
 
 static value gpg_test_func(value inputValue)
 {
-	int returnValue = SampleMethod(val_int(inputValue));
+	int returnValue = val_int(inputValue);
+	returnValue *= 100;
 	
 	return alloc_int(returnValue);
 }
