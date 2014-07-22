@@ -1,6 +1,6 @@
 @echo off
 
-haxelib run hxcpp Build.xml -Dandroid
-haxelib run hxcpp Build.xml -Dios
+rem haxelib run hxcpp Build.xml -Dandroid
+rem haxelib run hxcpp Build.xml -Diphone
 haxelib run hxcpp Build.xml -Dwindows
-haxelib run hxcpp Build.xml -Dneko
+rem haxelib run hxcpp Build.xml -Dneko

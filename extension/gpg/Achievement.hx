@@ -10,9 +10,8 @@ class Achievement
 {
 	public static function sampleMethod(inputValue:Int):Int
 	{
-		//return openfl_gpg_sample_method(inputValue);
-		return inputValue * inputValue;
+		return openfl_gpg_sample_method(inputValue);
 	}
 	
-	//private static var openfl_gpg_sample_method = Lib.load("openfl_gpg", "openfl_gpg_sample_method", 1);
+	private static var openfl_gpg_sample_method = Lib.load("gpg", "gpg_test_func", 1);
 }

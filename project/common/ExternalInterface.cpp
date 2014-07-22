@@ -6,32 +6,24 @@
 #define NEKO_COMPATIBLE
 #endif
 
-
 #include <hx/CFFI.h>
-#include "Utils.h"
+#include <stdio.h>
+#include "OpenFLGPG.h"
 
+using namespace gpg;
 
-using namespace openfl_gpg;
-
-
-
-static value openfl_gpg_sample_method (value inputValue) {
-	
+static value gpg_test_func(value inputValue)
+{
 	int returnValue = SampleMethod(val_int(inputValue));
+	
 	return alloc_int(returnValue);
-	
 }
-DEFINE_PRIM (openfl_gpg_sample_method, 1);
+DEFINE_PRIM(gpg_test_func, 1);
 
-
-
-extern "C" void openfl_gpg_main () {
-	
+extern "C" void gpg_main()
+{
 	val_int(0); // Fix Neko init
-	
 }
-DEFINE_ENTRY_POINT (openfl_gpg_main);
+DEFINE_ENTRY_POINT(gpg_main);
 
-
-
-extern "C" int openfl_gpg_register_prims () { return 0; }
+extern "C" int gpg_register_prims() { return 0; }

@@ -1,24 +1,43 @@
 <xml>
 	<include name="${HXCPP}/build-tool/BuildCommon.xml"/>
 	
+	<set name="mobile" value="1" if="iphone"/>
+	<set name="mobile" value="1" if="android"/>
+	<set name="mobile" value="1" if="blackberry"/>
+	<set name="mobile" value="1" if="webos"/>
+	
+	<set name="debug_extra" value="-debug" if="fulldebug" />
+	
 	<files id="common">
 		<compilerflag value="-Iinclude"/>
-		
 		<file name="common/ExternalInterface.cpp"/>
-		<file name="common/openfl-gpg.cpp"/>
 	</files>
 	
+	<!--
+	<files id="iphone">
+		<compilerflag value="-IiPhone/include"/>
+		<compilerflag value="-Iinclude"/>
+	</files>
+	-->
+	
+	<set name="name_prefix" value="lib" if="iphone"/>
+	<set name="ARM_ARCH" value="-v7" if="HXCPP_ARMV7"/>
+	<set name="name_extra" value=".iphoneos${ARM_ARCH}" if="iphoneos"/>
+	<set name="name_extra" value=".iphonesim" if="iphonesim"/>
+	<set name="name_extra" value="-x86" if="simulator" unless="iphonesim" />
+	<set name="tool" value="exe" unless="iphone"/>
+	<set name="tool" value="static_link" if="iphone"/>
+	<set name="ndll-tool" value="dll" unless="iphone"/>
+	<set name="ndll-tool" value="static_link" if="iphone"/>
 	<set name="SLIBEXT" value=".lib" if="windows"/>
 	<set name="SLIBEXT" value=".a" unless="windows"/>
 	<set name="SLIBEXT" value=".so" if="webos"/>
 	
-	<set name="DEBUGEXTRA" value="-debug" if="fulldebug" />
-	<set name="MSVC_LIB_VERSION" value="-v7" if="android" />
-	
-	<target id="NDLL" output="${LIBPREFIX}openfl_gpg${MSVC_LIB_VERSION}${DEBUGEXTRA}${LIBEXTRA}" tool="linker" toolid="${STD_MODULE_LINK}">
+	<target id="NDLL" output="${name_prefix}gpg${debug_extra}${name_extra}" tool="linker" toolid="${ndll-tool}">
 		<outdir name="../ndll/${BINDIR}"/>
-		<ext value=".ndll" if="windows || mac || linux"/>
+		<ext value=".ndll" unless="mobile"/>
 		<files id="common"/>
+		<files id="iphone" if="iphone"/>
 	</target>
 	
 	<target id="default">
