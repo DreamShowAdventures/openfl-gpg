@@ -12,7 +12,7 @@ Haxe bindings for Google Play Games Services, via OpenFL. MIT licensed.
 Add `openfl-gpg` to haxelib.
 
 ````
-haxelib git openfl-gpg https://github.com/DreamShowAdventures/openfl-play
+haxelib git openfl-gpg https://github.com/DreamShowAdventures/openfl-gpg
 ````
 
 Add it to your `Project.xml`.
