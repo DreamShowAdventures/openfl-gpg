@@ -3,3 +3,4 @@ bin
 export
 *.n
 obj
+project/iphone/lib/gpg
