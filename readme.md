@@ -22,3 +22,7 @@ Add it to your `Project.xml`.
 ````
 
 Other stuff will go here too I guess. This readme is incomplete!
+
+## Building
+
+If you want to build this from the source, you can run `project/make.bat` in Windows to rebuild the Android binaries. This requires a recent version of the Android NDK, which you can get [here](https://developer.android.com/tools/sdk/ndk/index.html).

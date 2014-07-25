@@ -1,10 +1,6 @@
 <xml>
 	<include name="${HXCPP}/build-tool/BuildCommon.xml"/>
 	
-	<!-- Link to GPG library -->
-	<lib name="android/lib/libgpg-v7.a" if="android" />
-	<lib name="iphone/lib/gpg" if="iphone" />
-	
 	<set name="mobile" value="1" if="iphone"/>
 	<set name="mobile" value="1" if="android"/>
 	<set name="mobile" value="1" if="blackberry"/>
@@ -12,19 +8,18 @@
 	
 	<set name="debug_extra" value="-debug" if="fulldebug" />
 	
-	<files id="common">
-		<file name="common/ExternalInterface.cpp"/>
-	</files>
-	
 	<set name="ANDROID_DIR" value="include/android" />
 	<set name="IPHONE_DIR" value="include/iphone" />
 	
-	<files id="android">
-		<compilerflag value="-I${ANDROID_DIR}"/>
-	</files>
-	
-	<files id="iphone">
-		<compilerflag value="-I${IPHONE_DIR}"/>
+	<files id="common">
+		<file name="common/ExternalInterface.cpp"/>
+		
+		<compilerflag value="-Iinclude/common"/>
+		<compilerflag value="-I${ANDROID_DIR}" if="android" />
+		<compilerflag value="-I${IPHONE_DIR}" if="iphone" />
+		
+		<compilerflag value="-std=gnu++11" if="android"/>
+		<compilerflag value="-std=c++0x" if="iphone"/>
 	</files>
 	
 	<set name="name_prefix" value="lib" if="iphone"/>
@@ -44,9 +39,12 @@
 	<target id="NDLL" output="${name_prefix}gpg${debug_extra}${name_extra}" tool="linker" toolid="${ndll-tool}">
 		<outdir name="../ndll/${BINDIR}"/>
 		<ext value=".ndll" unless="mobile"/>
-		<files id="android" if="android"/>
-		<files id="iphone" if="iphone"/>
+		
 		<files id="common"/>
+		
+		<!-- Link to GPG library -->
+		<lib name="android/lib/libgpg-v7.a" if="android" />
+		<lib name="iphone/lib/gpg" if="iphone" />
 	</target>
 	
 	<target id="default">

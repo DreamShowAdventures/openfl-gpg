@@ -8,7 +8,7 @@
 
 #include <hx/CFFI.h>
 #include <stdio.h>
-#include "include/namespace.h"
+//#include "gpg/namespace.h"
 /*
 #include "gpg/achievement.h"
 #include "gpg/achievement_manager.h"
@@ -47,6 +47,8 @@
 #include "gpg/turn_based_multiplayer_manager.h"
 #include "gpg/types.h"
 */
+
+#include "gpg/gpg.h"
 
 using namespace gpg;
 /*
