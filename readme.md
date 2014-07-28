@@ -6,6 +6,7 @@ Haxe bindings for Google Play Games Services, via OpenFL. MIT licensed.
 
 * This is a WIP, and is not guaranteed to work. Not all functions are implemented.
 * If you'd like to request a function be added, please open an issue. If you have a fix or improvement, please submit a pull request.
+* The iPhone GPG lib is too big for github ([maximum file size is 100MB](https://help.github.com/articles/what-is-my-disk-quota)). You can get that file [here](https://developers.google.com/games/services/downloads/) and it should go in [project/iphone/lib](project/iphone/lib).
 
 ## Usage
 
