@@ -1,5 +1,6 @@
 package;
 
+import extension.gpg.Test;
 import openfl.display.Sprite;
 import openfl.text.TextField;
 import openfl.events.TouchEvent;
@@ -54,7 +55,7 @@ class Main extends Sprite
 		#if (android || ios)
 		switch (testPosition)
 		{
-			case 0: gameServices.isAuthorized();
+			case 0: append(Test.test());
 		}
 		#end
 		
@@ -66,8 +67,8 @@ class Main extends Sprite
 	/**
 	 * Convenience function to add a string to the TextField object.
 	 */
-	private function append(Text:String):Void
+	private function append(Text:Dynamic):Void
 	{
-		return textField.text += "\n" + Text;
+		return textField.text += "\n" + Std.string(Text);
 	}
 }
