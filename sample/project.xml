@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <project>
-	<meta title="OpenFLGPGSample" package="com.example.openflgpgsample" version="1.0.0" company="Company Name" />
+	<meta title="OpenFL GPG Sample" package="com.sample.openflgpg" version="1.0.0" company="Sample" />
+	
 	<app main="Main" path="export" file="OpenFLGPGSample" />
 	
 	<source path="source" />
@@ -8,5 +9,5 @@
 	<haxelib name="openfl" />
 	<haxelib name="openfl-gpg" />
 	
-	<icon path="assets/openfl-gpg-logo.svg" />
+	<icon path="../assets/openfl-gpg-logo.svg" />
 </project>

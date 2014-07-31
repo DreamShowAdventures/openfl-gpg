@@ -6,7 +6,6 @@ Haxe bindings for Google Play Games Services, via OpenFL. MIT licensed.
 
 * This is a WIP, and is not guaranteed to work. Not all functions are implemented.
 * If you'd like to request a function be added, please open an issue. If you have a fix or improvement, please submit a pull request.
-* The iPhone GPG lib is too big for github ([maximum file size is 100MB](https://help.github.com/articles/what-is-my-disk-quota)). You can get that file [here](https://developers.google.com/games/services/downloads/) and it should go in [project/iphone/lib](project/iphone/lib).
 
 ## Usage
 
@@ -24,6 +23,7 @@ Add it to your `Project.xml`.
 
 Other stuff will go here too I guess. This readme is incomplete!
 
-## Building
+## References
 
-If you want to build this from the source, you can run `project/make.bat` in Windows to rebuild the Android binaries. This requires a recent version of the Android NDK, which you can get [here](https://developer.android.com/tools/sdk/ndk/index.html).
+[shoebox NME Native Extension](http://www.shoe-box.org/blog/?p=252)
+[labe.me OpenFL Extension](http://labe.me/en/blog/posts/2013-06-25-OpenFL-extension-(3).html)

@@ -1,9 +1,9 @@
 {
-  "name": "openfl_gpg",
-  "url": "",
+  "name": "OpenFL GPG",
+  "url": "https://github.com/DreamShowAdventures/openfl-gpg",
   "license": "MIT",
   "tags": [],
-  "description": "",
+  "description": "Haxe bindings for Google Play Games Services.",
   "version": "1.0.0",
   "releasenote": "",
   "contributors": [""],
