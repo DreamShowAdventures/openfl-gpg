@@ -2,8 +2,8 @@ package gpg;
 
 class GPG
 {
-    public static String test(String in)
+    public static String test()
 	{
-        return "Testing: " + in;
+        return "Connected to JNI!";
     }
 }

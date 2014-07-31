@@ -6,7 +6,7 @@ import openfl.Lib;
 import openfl.text.TextField;
 import openfl.events.TouchEvent;
 
-//import extension.api.GPG;
+import extension.api.GPG;
 
 /**
  * This is a bare-bones example and test application for OpenFL-GPG.
@@ -33,6 +33,7 @@ class Main extends Sprite
 		textField = new TextField();
 		textField.width = Lib.current.stage.stageWidth;
 		textField.height = Lib.current.stage.stageHeight;
+		textField.selectable = false;
 		textField.text = "Tap to test OpenFL-GPG functions.";
 		addChild(textField);
 		
@@ -51,8 +52,11 @@ class Main extends Sprite
 	private function onTap(?t:TouchEvent):Void
 	{
 		#if mobile
-		//GPG.init();
-		//GPG.test();
+		GPG.init();
+		
+		var result:String = GPG.test();
+		
+		append(result);
 		#end
 	}
 	

@@ -8,33 +8,40 @@ class GPG
 {
 	public static var initialized(default, null):Bool = false;
 	
+	/**
+	 * Initializes Google Play Games Services and all functions in this class.
+	 */
 	public static function init():Void
 	{
 		#if android
 		if (!initialized)
 		{
-			test_function = JNI.createStaticMethod("gpg.GPG", "test", "(Ljava/lang/String;)Ljava/lang/String;");
+			test_function = JNI.createStaticMethod("gpg.GPG", "test", "()Ljava/lang/String;");
 		}
+		
+		initialized = true;
 		#end
 	}
 	
-	public static function test(Text:String):String
+	/**
+	 * A generic test function to verify that JNI is working properly.
+	 */
+	public static function test():String
 	{
-		verify();
+		var result:String = "";
 		
-		return test_function(Text);
-	}
-	
-	private static function verify():Void
-	{
 		#if android
-		if (!initialized)
+		try
 		{
-			throw "You must initialize first!";
+			result = test_function();
 		}
-		#else
-		
+		catch (e:Dynamic)
+		{
+			result = Std.string(e);
+		}
 		#end
+		
+		return result;
 	}
 	
 	private static var test_function:Dynamic;
