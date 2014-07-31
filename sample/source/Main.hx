@@ -44,6 +44,10 @@ class Main extends Sprite
 		#else
 		Lib.current.stage.addEventListener(MouseEvent.MOUSE_DOWN, onClick);
 		#end
+		
+		// Initialize the GPG library
+		
+		GPG.init();
 	}
 	
 	/**
@@ -51,9 +55,7 @@ class Main extends Sprite
 	 */
 	private function onTap(?t:TouchEvent):Void
 	{
-		#if mobile
-		GPG.init();
-		
+		#if android
 		var result:String = GPG.test();
 		
 		append(result);
