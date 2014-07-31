@@ -1,12 +1,12 @@
 package;
 
-import extension.gpg.Test;
 import openfl.display.Sprite;
+import openfl.events.MouseEvent;
+import openfl.Lib;
 import openfl.text.TextField;
 import openfl.events.TouchEvent;
 
-import extension.gpg.Achievement;
-import extension.gpg.GameServices;
+//import extension.api.GPG;
 
 /**
  * This is a bare-bones example and test application for OpenFL-GPG.
@@ -23,28 +23,26 @@ class Main extends Sprite
 	 * Displays results of test functions.
 	 */
 	private var textField:TextField;
-	/**
-	 * The GameServices object that will be used.
-	 */
-	private var gameServices:GameServices;
 	
 	public function new()
 	{
 		super();
 		
-		// Instantiate the GameServices object.
-		
-		gameServices = new GameServices();
-		
 		// Instantiate the TextField object and add it to the stage.
 		
 		textField = new TextField();
+		textField.width = Lib.current.stage.stageWidth;
+		textField.height = Lib.current.stage.stageHeight;
 		textField.text = "Tap to test OpenFL-GPG functions.";
 		addChild(textField);
 		
 		// Calls the onTap function every time the screen is tapped.
 		
-		addEventListener(TouchEvent.TOUCH_END, onTap);
+		#if mobile
+		Lib.current.stage.addEventListener(TouchEvent.TOUCH_END, onTap);
+		#else
+		Lib.current.stage.addEventListener(MouseEvent.MOUSE_DOWN, onClick);
+		#end
 	}
 	
 	/**
@@ -52,16 +50,17 @@ class Main extends Sprite
 	 */
 	private function onTap(?t:TouchEvent):Void
 	{
-		#if (android || ios)
-		switch (testPosition)
-		{
-			case 0: append(Test.test());
-		}
+		#if mobile
+		//GPG.init();
+		//GPG.test();
 		#end
-		
-		// Increment this value every tap to call the next-highest test function 
-		
-		testPosition++;
+	}
+	
+	private function onClick(?m:MouseEvent):Void
+	{
+		#if !mobile
+		append("Not on a mobile device!");
+		#end
 	}
 	
 	/**
@@ -69,6 +68,6 @@ class Main extends Sprite
 	 */
 	private function append(Text:Dynamic):Void
 	{
-		return textField.text += "\n" + Std.string(Text);
+		textField.text += "\n" + Std.string(Text);
 	}
 }

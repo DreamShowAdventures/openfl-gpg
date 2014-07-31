@@ -1,1 +1,0 @@
-haxelib run hxcpp Build.xml -Dandroid -DHXCPP_ARMV7
