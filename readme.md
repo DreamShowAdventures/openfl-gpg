@@ -27,3 +27,5 @@ Other stuff will go here too I guess. This readme is incomplete!
 
 * [shoebox NME Native Extension](http://www.shoe-box.org/blog/?p=252)
 * [labe.me OpenFL Extension](http://labe.me/en/blog/posts/2013-06-25-OpenFL-extension-(3).html)
+* [OpenFL-Ouya](https://github.com/openfl/openfl-ouya) (lots of good JNI examples)
+* [Google's Play Game Services Examples](https://github.com/playgameservices/android-basic-samples)

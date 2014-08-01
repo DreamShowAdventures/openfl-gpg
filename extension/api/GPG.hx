@@ -1,5 +1,4 @@
 package extension.api;
-import extension.api.GPG.JavaType;
 
 #if android
 import openfl.utils.JNI;
@@ -24,12 +23,6 @@ class GPG
 		}
 		
 		initialized = true;
-		#else
-		trace(createSignature([JavaType.NULL], JavaType.BOOL));
-		trace(createSignature([JavaType.NULL], JavaType.STRING));
-		trace(createSignature([JavaType.BOOL, JavaType.STRING], JavaType.NULL));
-		trace(createSignature([JavaType.NULL], JavaType.VOID));
-		trace(createSignature([JavaType.VOID], JavaType.VOID));
 		#end
 	}
 	
@@ -104,7 +97,7 @@ class GPG
 			case JavaType.BOOL: 	return "Z";
 			case JavaType.STRING: 	return "Ljava/lang/String;";
 			case JavaType.VOID: 	return "V";
-			default:				return "";
+			default:				return ""; // null
 		}
 	}
 	

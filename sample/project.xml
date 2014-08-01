@@ -9,5 +9,7 @@
 	<haxelib name="openfl" />
 	<haxelib name="openfl-gpg" />
 	
+	<setenv name="PLAY_APP_ID" value="327660389476" />
+	
 	<icon path="../assets/openfl-gpg-logo.svg" />
 </project>

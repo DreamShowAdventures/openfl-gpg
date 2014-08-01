@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <project>
 	<java path="android" if="android" />
+	<java path="libs/google-play-services.jar" if="android" />
+	<template path="template/MainActivity.java" rename="src/${APP_PACKAGE}/MainActivity.java" />
 </project>
