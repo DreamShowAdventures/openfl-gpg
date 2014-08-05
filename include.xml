@@ -2,5 +2,6 @@
 <project>
 	<java path="android" if="android" />
 	<java path="libs/google-play-services.jar" if="android" />
-	<template path="template/MainActivity.java" rename="src/${APP_PACKAGE}/MainActivity.java" />
+	<java path="libs/android-support-v4.jar" if="android" />
+	<template path="template"/>
 </project>

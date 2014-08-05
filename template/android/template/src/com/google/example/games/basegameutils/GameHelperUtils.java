@@ -1,4 +1,4 @@
-package gpg;
+package com.google.example.games.basegameutils;
 
 import android.app.Activity;
 import android.content.Context;
@@ -29,14 +29,10 @@ class GameHelperUtils {
             "*License check failed."
     };
 
-    /**private final static int[] RES_IDS = {
-            R.string.gamehelper_unknown_error, R.string.gamehelper_sign_in_failed,
-            R.string.gamehelper_app_misconfigured, R.string.gamehelper_license_failed
-    };*/
-	
-	private final static int[] RES_IDS = {
-		R_UNKNOWN_ERROR, R_SIGN_IN_FAILED, R_APP_MISCONFIGURED, R_LICENSE_FAILED
-	};
+    private final static int[] RES_IDS = {
+            R_UNKNOWN_ERROR, R_SIGN_IN_FAILED,
+            R_APP_MISCONFIGURED, R_LICENSE_FAILED
+    };
 
     static String activityResponseCodeToString(int respCode) {
         switch (respCode) {

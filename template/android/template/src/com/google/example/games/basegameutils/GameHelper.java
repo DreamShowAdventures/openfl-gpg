@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package gpg;
+package com.google.example.games.basegameutils;
 
 import java.util.ArrayList;
 
