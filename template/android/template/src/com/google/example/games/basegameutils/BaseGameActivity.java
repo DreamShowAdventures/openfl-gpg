@@ -40,9 +40,8 @@ import com.google.android.gms.common.api.GoogleApiClient;
  *
  * @author Bruno Oliveira (Google)
  */
-public abstract class BaseGameActivity extends FragmentActivity implements
-        GameHelper.GameHelperListener {
-
+public abstract class BaseGameActivity extends org.haxe.lime.GameActivity implements GameHelper.GameHelperListener
+{
     // The game helper object. This class is mainly a wrapper around this object.
     protected GameHelper mHelper;
 
@@ -152,13 +151,6 @@ public abstract class BaseGameActivity extends FragmentActivity implements
         if (mHelper != null) {
             mHelper.enableDebugLog(enabled);
         }
-    }
-
-    @Deprecated
-    protected void enableDebugLog(boolean enabled, String tag) {
-        Log.w(TAG, "BaseGameActivity.enabledDebugLog(bool,String) is " +
-                "deprecated. Use enableDebugLog(boolean)");
-        enableDebugLog(enabled);
     }
 
     protected String getInvitationId() {

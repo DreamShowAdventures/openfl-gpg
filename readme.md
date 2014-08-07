@@ -6,6 +6,8 @@ Haxe bindings for Google Play Games Services, via OpenFL. MIT licensed.
 
 * This is a WIP, and is not guaranteed to work. Not all functions are implemented.
 * If you'd like to request a function be added, please open an issue. If you have a fix or improvement, please submit a pull request.
+* Google Play stuff requires Java 8, which you can get [here](http://www.oracle.com/technetwork/java/javase/downloads/index.html).
+* To compile an Android app using Java 8 requires Apache Ant 1.9, which you can get [here](http://ant.apache.org/bindownload.cgi).
 
 ## Usage
 
